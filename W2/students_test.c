@@ -18,6 +18,11 @@ int main() {
 
   students_foreach(stds, students_print);
 
+  students_foreach_loop(stds, el) {
+    printf("Name: %s\n", el->name);
+    printf("ID: %s\n", el->id);
+  }
+
   printf("%d\n", students_len(stds));
   printf("Parham @ %d\n", students_search_name(stds, "Parham Alvani"));
   printf("Saman @ %d\n", students_search_id(stds, "9231075"));

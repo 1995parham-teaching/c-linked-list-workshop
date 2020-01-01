@@ -1,6 +1,11 @@
 #ifndef STUDENTS_H
 #define STUDENTS_H
 
+#define students_foreach_loop(stds, element) \
+    struct students_el *element ## _el = stds->head; \
+    const struct student *element = element ## _el->student; \
+    for (; element ## _el != NULL; element ## _el = element ## _el->next, element = element ## _el ? element ## _el->student : NULL)
+
 struct student {
     char name[256];
     char id[8];
