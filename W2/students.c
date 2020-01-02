@@ -55,6 +55,25 @@ void students_push_back(struct students *students, struct student *student) {
 }
 
 void students_remove(struct students *students, int index) {
+  struct students_el *el = students->head;
+
+  if (index == 0) {
+    students->head = el->next;
+    student_delete(el->student);
+    free(el);
+  } else {
+    int i = 0;
+    while (el && i + 1 < index) {
+      el = el->next;
+      i++;
+    }
+    if (i + 1 == index) {
+      struct students_el *p = el->next->next;
+      student_delete(el->next->student);
+      free(el->next);
+      el->next = p;
+    }
+  }
 }
 
 int students_search_name(struct students *students, const char *name) {
