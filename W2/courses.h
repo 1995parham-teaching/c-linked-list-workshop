@@ -29,4 +29,6 @@ void course_attend(struct course *course, struct student *student, int session);
 
 int course_student_attend_count(struct course *course, const char *id);
 
+void course_delete(struct course *course);
+
 #endif

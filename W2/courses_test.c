@@ -27,4 +27,11 @@ int main() {
   printf("%s: %d\n", std2->id, course_student_attend_count(crs, std2->id));
   printf("%s: %d\n", std3->id, course_student_attend_count(crs, std3->id));
   printf("%s: %d\n", std4->id, course_student_attend_count(crs, std4->id));
+
+  course_delete(crs);
+
+  student_delete(std1);
+  student_delete(std2);
+  student_delete(std3);
+  student_delete(std4);
 }

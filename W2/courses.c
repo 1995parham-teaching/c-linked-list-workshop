@@ -47,3 +47,15 @@ int course_student_attend_count(struct course *course, const char *id) {
 
   return count;
 }
+
+
+void course_delete(struct course *course) {
+  students_delete(course->students);
+
+  for (int i = 0; i < course->number_of_sessions; i++) {
+    students_delete(course->attendance[i]);
+  }
+  free(course->attendance);
+
+  free(course);
+}
