@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "classes.h"
+#include "courses.h"
 
 struct course *course_create(const char *name, const char *professor, int number_of_sessions) {
   struct course *crs = malloc(sizeof(struct course));
