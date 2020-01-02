@@ -29,3 +29,5 @@ First Step: Implement and Test a simple linked-list.
 Second Step: Implement and Test a single class with its attendance. (based on linked-list of the first step)
 Third Step: Implement the whole program.
 Fourth Step: Add persistency into CAS with files.
+
+Step by Step [Gist](https://gist.github.com/1995parham/12684919529a6f2181208888d5a52cc5).
