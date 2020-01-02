@@ -12,15 +12,21 @@ int main() {
 
   struct student *std1 = student_new("Parham Alvani", "9231058");
   struct student *std2 = student_new("Saman Fekri", "9231075");
+  struct student *std3 = student_new("Sepehr Sabour", "9231011");
+  struct student *std4 = student_new("Hesam Hedayati", "9231027");
 
   students_push_back(stds, std1);
   students_push_back(stds, std2);
+  students_push_back(stds, std3);
+  students_push_back(stds, std4);
 
   students_foreach(stds, students_print);
 
+  FILE *fp = fopen("students.txt", "w");
   students_foreach_loop(stds, el) {
-    printf("Name: %s\n", el->name);
-    printf("ID: %s\n", el->id);
+    fprintf(fp, "Name: %s\n", el->name);
+    fprintf(fp, "ID: %s\n", el->id);
+    fprintf(fp, "\n");
   }
 
   printf("%d\n", students_len(stds));
