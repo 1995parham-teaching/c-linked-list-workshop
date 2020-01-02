@@ -1,6 +1,6 @@
-#include <stdlib.h>
+#include <stdio.h>
 
-#include "classes.h"
+#include "courses.h"
 
 int main() {
   struct course *crs = course_create("Introduction to Programming", "Dr.Bakhshi", 16);
@@ -14,4 +14,17 @@ int main() {
   course_register(crs, std2);
   course_register(crs, std3);
   course_register(crs, std4);
+
+  course_attend(crs, std1, 0);
+  course_attend(crs, std2, 0);
+  course_attend(crs, std3, 0);
+
+  course_attend(crs, std1, 1);
+  course_attend(crs, std2, 1);
+  course_attend(crs, std4, 1);
+
+  printf("%s: %d\n", std1->id, course_student_attend_count(crs, std1->id));
+  printf("%s: %d\n", std2->id, course_student_attend_count(crs, std2->id));
+  printf("%s: %d\n", std3->id, course_student_attend_count(crs, std3->id));
+  printf("%s: %d\n", std4->id, course_student_attend_count(crs, std4->id));
 }
