@@ -33,4 +33,9 @@ int main() {
   printf("Parham @ %d\n", students_search_name(stds, "Parham Alvani"));
   printf("Saman @ %d\n", students_search_id(stds, "9231075"));
   students_delete(stds);
+
+  student_delete(std1);
+  student_delete(std2);
+  student_delete(std3);
+  student_delete(std4);
 }

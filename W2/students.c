@@ -59,7 +59,6 @@ void students_remove(struct students *students, int index) {
 
   if (index == 0) {
     students->head = el->next;
-    student_delete(el->student);
     free(el);
   } else {
     int i = 0;
@@ -69,7 +68,6 @@ void students_remove(struct students *students, int index) {
     }
     if (i + 1 == index) {
       struct students_el *p = el->next->next;
-      student_delete(el->next->student);
       free(el->next);
       el->next = p;
     }
@@ -116,7 +114,6 @@ void students_delete(struct students *students) {
   while (p) {
     struct students_el *el = p;
     p = p->next;
-    student_delete(el->student);
     free(el);
   }
 
