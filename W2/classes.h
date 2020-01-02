@@ -1,0 +1,24 @@
+#ifndef CLASSES_H
+#define CLASSES_H
+
+#include "students.h"
+
+struct course {
+    char name[256];
+    char professor[256];
+    struct students *students;
+    int number_of_sessions;
+    struct students *attendance[];
+};
+
+struct courses {
+    int length;
+    struct courses_el *head;
+};
+
+struct courses_el {
+    struct course *course;
+    struct courses_el *next;
+};
+
+#endif
