@@ -8,7 +8,7 @@ struct course {
     char professor[256];
     struct students *students;
     int number_of_sessions;
-    struct students *attendance[];
+    struct students **attendance;
 };
 
 struct courses {
@@ -20,5 +20,9 @@ struct courses_el {
     struct course *course;
     struct courses_el *next;
 };
+
+struct course *course_create(const char *name, const char *professor, int number_of_sessions);
+
+void course_register(struct course *course, struct student *student);
 
 #endif
