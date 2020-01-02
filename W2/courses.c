@@ -30,5 +30,20 @@ void course_register(struct course *course, struct student *student) {
 }
 
 void course_attend(struct course *course, struct student *student, int session) {
-  students_push_back(course->attendance[session], student);
+  // check the student existence in the list
+  if (students_search_id(course->students, student->id) != -1) {
+    students_push_back(course->attendance[session], student);
+  }
+}
+
+int course_student_attend_count(struct course *course, const char *id) {
+  int count = 0;
+
+  for (int i = 0; i < course->number_of_sessions; i++) {
+    if (students_search_id(course->attendance[i], id) != -1) {
+      count++;
+    }
+  }
+
+  return count;
 }
