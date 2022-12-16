@@ -1,4 +1,5 @@
-# C-Workshops
+# C Workshop on Linked-List and Structures
+
 ## Class Attendance System (CAS)
 
 Course (Class):
