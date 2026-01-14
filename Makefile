@@ -35,6 +35,7 @@ check:
 	@echo "Running static analysis..."
 	@$(CC) $(CHECK_FLAGS) students.c && echo "  students.c: OK"
 	@$(CC) $(CHECK_FLAGS) courses.c && echo "  courses.c: OK"
+	@$(CC) $(CHECK_FLAGS) -Wno-missing-prototypes main.c && echo "  main.c: OK"
 	@$(CC) $(CHECK_FLAGS) -Wno-missing-prototypes students_test.c && echo "  students_test.c: OK"
 	@$(CC) $(CHECK_FLAGS) -Wno-missing-prototypes courses_test.c && echo "  courses_test.c: OK"
 	@echo "All checks passed!"
@@ -70,3 +71,4 @@ clean:
 # Dependencies
 students.o: students.c students.h
 courses.o: courses.c courses.h students.h
+main.o: main.c courses.h students.h

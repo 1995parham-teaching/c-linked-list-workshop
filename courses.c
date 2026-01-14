@@ -94,3 +94,89 @@ void course_delete(struct course *course) {
 
   free(course);
 }
+
+// Courses list management
+
+struct courses *courses_new(void) {
+  struct courses *list = malloc(sizeof(struct courses));
+  if (list == NULL) {
+    return NULL;
+  }
+  list->length = 0;
+  list->head = NULL;
+  return list;
+}
+
+int courses_len(const struct courses *courses) {
+  return courses->length;
+}
+
+void courses_push_back(struct courses *courses, struct course *course) {
+  struct courses_el *el = malloc(sizeof(struct courses_el));
+  if (el == NULL) {
+    return;
+  }
+  el->course = course;
+  el->next = NULL;
+
+  courses->length++;
+
+  if (courses->head == NULL) {
+    courses->head = el;
+  } else {
+    struct courses_el *p = courses->head;
+    while (p->next != NULL) {
+      p = p->next;
+    }
+    p->next = el;
+  }
+}
+
+struct course *courses_get(const struct courses *courses, int index) {
+  if (index < 0 || index >= courses->length) {
+    return NULL;
+  }
+
+  struct courses_el *p = courses->head;
+  for (int i = 0; i < index; i++) {
+    p = p->next;
+  }
+  return p->course;
+}
+
+void courses_remove(struct courses *courses, int index) {
+  if (index < 0 || index >= courses->length) {
+    return;
+  }
+
+  struct courses_el *el = courses->head;
+
+  if (index == 0) {
+    courses->head = el->next;
+    course_delete(el->course);
+    free(el);
+  } else {
+    for (int i = 0; i < index - 1; i++) {
+      el = el->next;
+    }
+    struct courses_el *to_remove = el->next;
+    el->next = to_remove->next;
+    course_delete(to_remove->course);
+    free(to_remove);
+  }
+
+  courses->length--;
+}
+
+void courses_delete(struct courses *courses) {
+  struct courses_el *p = courses->head;
+
+  while (p) {
+    struct courses_el *el = p;
+    p = p->next;
+    course_delete(el->course);
+    free(el);
+  }
+
+  free(courses);
+}
