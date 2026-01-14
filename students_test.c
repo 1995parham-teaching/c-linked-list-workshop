@@ -7,7 +7,7 @@ void students_print(const struct student *student) {
   printf("ID: %s\n", student->id);
 }
 
-int main() {
+int main(void) {
   struct students *stds = students_new();
 
   struct student *std1 = student_new("Parham Alvani", "9231058");
@@ -28,14 +28,12 @@ int main() {
     fprintf(fp, "ID: %s\n", el->id);
     fprintf(fp, "\n");
   }
+  fclose(fp);
 
-  printf("%d\n", students_len(stds));
+  printf("%zu\n", students_len(stds));
   printf("Parham @ %d\n", students_search_name(stds, "Parham Alvani"));
   printf("Saman @ %d\n", students_search_id(stds, "9231075"));
-  students_delete(stds);
 
-  student_delete(std1);
-  student_delete(std2);
-  student_delete(std3);
-  student_delete(std4);
+  // students_delete frees both the list and all students it contains
+  students_delete(stds);
 }

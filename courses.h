@@ -25,9 +25,10 @@ struct course *course_create(const char *name, const char *professor, int number
 
 void course_register(struct course *course, struct student *student);
 
-void course_attend(struct course *course, struct student *student, int session);
+// Mark student as attending a session. Returns 0 on success, -1 on error.
+int course_attend(struct course *course, const struct student *student, int session);
 
-int course_student_attend_count(struct course *course, const char *id);
+int course_student_attend_count(const struct course *course, const char *id);
 
 void course_delete(struct course *course);
 
