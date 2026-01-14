@@ -1,6 +1,7 @@
-# C Workshop on Linked-List and Structures
-
-[![CI](https://github.com/1995parham/c-linked-list-workshop/actions/workflows/ci.yml/badge.svg)](https://github.com/1995parham/c-linked-list-workshop/actions/workflows/ci.yml)
+<div align="center">
+  <h1>C Workshop on Linked-List and Structures</h1>
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/1995parham-teaching/c-linked-list-workshop/ci.yml?logo=github&style=for-the-badge">
+</div>
 
 ## Class Attendance System (CAS)
 
